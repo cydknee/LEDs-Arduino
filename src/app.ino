@@ -8,10 +8,10 @@
 #define FRAMES_PER_SECOND  120
 
 CRGB leds[NUM_LEDS];
-CRGBPalette16 currentPalette;
-TBlendType    currentBlending;
+CRGB targetColour[NUM_LEDS];
 
-const CRGBPalette16 bluePalette = CRGBPalette16( CRGB::Aqua, CRGB::Blue, CRGB::DarkBlue, CRGB::DodgerBlue);
+CRGB colourPallete[4] = {CRGB::Aqua, CRGB::Blue, CRGB::DarkBlue, CRGB::DodgerBlue};
+const CRGBPalette16 currentPalette = CRGBPalette16( colourPallete[0], colourPallete[1], colourPallete[2], colourPallete[3] );
 
 void setup()
 {
@@ -20,13 +20,11 @@ void setup()
     FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
     FastLED.setBrightness(BRIGHTNESS);
 
-    currentPalette = bluePalette;
-    currentBlending = LINEARBLEND;
-
     setupMood();  
 }
 
 void loop()
 {
-    mood();   
+    mood();  
+    
 }
