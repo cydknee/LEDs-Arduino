@@ -1,5 +1,3 @@
-#include <FastLED.h>
-
 // fadeTowardColor example code.
 //
 // Sample code that includes a function for fading one RGB color toward a target RGB color
@@ -37,13 +35,4 @@ CRGB fadeTowardColor( CRGB& cur, const CRGB& target, uint8_t amount)
   nblendU8TowardU8( cur.green, target.green, amount);
   nblendU8TowardU8( cur.blue,  target.blue,  amount);
   return cur;
-}
-
-// Fade an entire array of CRGBs toward a given background color by a given amount
-// This function modifies the pixel array in place.
-void fadeTowardColor( CRGB* L, uint16_t N, const CRGB& bgColor, uint8_t fadeAmount)
-{
-  for( uint16_t i = 0; i < N; i++) {
-    fadeTowardColor( L[i], bgColor, fadeAmount);
-  }
 }

@@ -4,14 +4,13 @@
 #define LED_TYPE    WS2812B
 #define COLOR_ORDER GRB
 #define NUM_LEDS    12 * 12
-#define BRIGHTNESS          40
-#define FRAMES_PER_SECOND  120
+#define BRIGHTNESS  40
+#define SPEED       20
 
 CRGB leds[NUM_LEDS];
 CRGB targetColour[NUM_LEDS];
 
 CRGB colourPallete[4] = {CRGB::Aqua, CRGB::Blue, CRGB::DarkBlue, CRGB::DodgerBlue};
-const CRGBPalette16 currentPalette = CRGBPalette16( colourPallete[0], colourPallete[1], colourPallete[2], colourPallete[3] );
 
 void setup()
 {
@@ -26,5 +25,4 @@ void setup()
 void loop()
 {
     mood();  
-    
 }
